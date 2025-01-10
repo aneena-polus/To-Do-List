@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+h2 { font-family: "DM Serif Text", serif; }
+
+.signup-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+.text-nav { font-family: "Philosopher", serif; }
+
+.pointer { cursor: pointer; }
+
+.text-color { color: #3b0764; }
+
+.text-color:hover { color: #9a68c0; }
+
+.bg-color { background-color: #3b0764; }
+
+.bg-color:hover { background-color: #9a68c0; }
+
+.card-design { box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,rgba(60, 64, 67, 0.15) 0px 1px 3px 1px; }
+
+.card-design2 { box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px; }
