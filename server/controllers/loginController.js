@@ -11,7 +11,6 @@ export const userLogin = async (req, res) => {
         if (user && bcrypt.compare(password, user.password)) {
             const token = jwt.sign({ username }, process.env.ACCESS_TOKEN, {expiresIn:'1h'});
             return res.cookie("access_token", token, {
-                    httpOnly: true,
                     maxAge: 3600000,
                     sameSite: 'None',
                 }).status(200).json(user);
