@@ -9,6 +9,10 @@ const taskSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    status: {
+        type: String,
+        required: false
+    },
     createUser: {
         type: String,
         required: true
@@ -16,6 +20,10 @@ const taskSchema = new mongoose.Schema({
     createTimestamp: {
         type: Date,
         required: true
+    },
+    updateTimestamp: {
+        type: Date,
+        required: false
     }
 });
 

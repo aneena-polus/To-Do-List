@@ -6,6 +6,7 @@ import { validate } from '../Utilities/FormUtils.js';
 import { useDispatch } from 'react-redux';
 import { updateTaskInList, addTaskInList } from '../Redux/Actions/taskActions.js';
 import { ToastMessage } from '../Common/Toast.js';
+import { useNavigate } from 'react-router-dom';
 
 function AddOrUpdateTask(props) {
     const dispatch = useDispatch();
@@ -13,10 +14,12 @@ function AddOrUpdateTask(props) {
     const [newField, setnewField] = useState({
         subject: taskData?.subject || '',
         comment: taskData?.comment || '',
+        status: taskData?.status || 'Pending',
         createUser: JSON.parse(localStorage.getItem('userData'))._id,
         createTimestamp: new Date()
     });
     const [errors, setErrors] = useState({});
+    const navigate = useNavigate();
     const onInputChange = onFormDataChange(setnewField);
 
     const onFormSubmission = (event) => {
@@ -36,6 +39,7 @@ function AddOrUpdateTask(props) {
             })
             .catch((error) => {
                 console.error(taskData?._id ? 'Error updating task:' : 'Error adding task:', error);
+                navigate('/errorMsg');
             })
             .finally(() => {
                 setnewField({ subject: '', comment: '' });
@@ -44,18 +48,18 @@ function AddOrUpdateTask(props) {
     };
 
     return (
-        <div className="modal show d-block" tabIndex="-1">
+        <div className="modal show d-block bg-blur" tabIndex="-1">
             <div className="modal-dialog">
                 <div className="modal-content">
                     <div className="modal-header">
-                        <h5 className="modal-title">{taskData ? 'Edit Task' : 'Create Task'}</h5>
+                        <h5 className="modal-title fw-bold">{taskData ? 'Edit Task' : 'Create Task'}</h5>
                         <button type="button" className="btn-close" title="Close" onClick={props.onClose}
                             aria-label="Close"></button>
                     </div>
                     <form onSubmit={onFormSubmission}>
                         <div className="modal-body">
                             <div className="mb-3">
-                                <label htmlFor="subject" className="form-label">Subject:</label>
+                                <label htmlFor="subject" className="form-label fw-semibold">Subject:</label>
                                 <input type="text" id="subject" name="subject"
                                     value={newField.subject} onChange={onInputChange}
                                     className={`form-control ${errors.subject ? "is-invalid" : ""}`}
@@ -63,7 +67,7 @@ function AddOrUpdateTask(props) {
                                 {errors.subject && <div className="text-danger">{errors.subject}</div>}
                             </div>
                             <div className="mb-3">
-                                <label htmlFor="comment" className="form-label">Comment:</label>
+                                <label htmlFor="comment" className="form-label fw-semibold">Comment:</label>
                                 <textarea id="comment" name="comment"
                                     value={newField.comment} onChange={onInputChange}
                                     className={`form-control ${errors.comment ? "is-invalid" : ""}`}

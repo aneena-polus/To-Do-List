@@ -15,6 +15,11 @@ export const updateTaskInList = (updatedTask) => ({
     payload: updatedTask,
 });
 
+export const updateStatusInList = (updatedStatus) => ({
+    type: ActionTypes.UPDATE_STATUS,
+    payload: updatedStatus,
+});
+
 export const deleteTaskfromList = (taskId) => ({
     type: ActionTypes.DELETE_TASK,
     payload: taskId,

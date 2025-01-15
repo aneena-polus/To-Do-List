@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import '../Styles/FormStyle.css';
 import { validate } from '../Utilities/FormUtils.js'
 import { getAllCountries, getAllStates, onSignUp } from "../Services/loginService.js";
+import { Button } from "@mui/material";
 
 function SignUp({ onToggleLogin }) {
     const [countries, setCountries] = useState([]);
@@ -66,14 +67,14 @@ function SignUp({ onToggleLogin }) {
 
     return (
         <div className="signup-container d-flex justify-content-center align-items-center">
-            <div className="card shadow-sm p-4">
+            <div className="card card-design2 p-4">
                 <form className="form"
                     onSubmit={handleSignUp}>
-                    <h2 className="text-center mb-4">Sign Up</h2>
+                    <h2 className="text-center mb-4 text-color">Sign Up</h2>
                     <div className="row">
                         <div className="col-lg-6 col-md-6 col-sm-12">
                             <div className="mb-3">
-                                <label htmlFor="username">Username</label>
+                                <label htmlFor="username" className="fw-semibold">Username</label>
                                 <input type="text" id="username" value={userData.username} onChange={handleInputChange}
                                     className={`form-control ${errors.username ? "is-invalid" : ""}`} 
                                     placeholder="Enter username"/>
@@ -84,7 +85,7 @@ function SignUp({ onToggleLogin }) {
                         </div>
                         <div className="col-lg-6 col-md-6 col-sm-12">
                             <div className="mb-3">
-                                <label htmlFor="password">Password</label>
+                                <label htmlFor="password" className="fw-semibold">Password</label>
                                 <input type="password" id="password" value={userData.password} onChange={handleInputChange}
                                     className={`form-control ${errors.password ? "is-invalid" : ""}`} placeholder="Enter password"/>
                                 {errors.password && (
@@ -96,7 +97,7 @@ function SignUp({ onToggleLogin }) {
                     <div className="row">
                         <div className="col-lg-6 col-md-6 col-sm-12">
                             <div className="mb-3">
-                                <label htmlFor="firstName">First Name</label>
+                                <label htmlFor="firstName" className="fw-semibold">First Name</label>
                                 <input type="text" id="firstName" value={userData.firstName} onChange={handleInputChange}
                                     className={`form-control ${errors.firstName ? "is-invalid" : ""}`} placeholder="Enter first name"/>
                                 {errors.firstName && (
@@ -106,7 +107,7 @@ function SignUp({ onToggleLogin }) {
                         </div>
                         <div className="col-lg-6 col-md-6 col-sm-12">
                             <div className="mb-3">
-                                <label htmlFor="lastName">Last Name</label>
+                                <label htmlFor="lastName" className="fw-semibold">Last Name</label>
                                 <input type="text" id="lastName" value={userData.lastName} onChange={handleInputChange}
                                     className={`form-control ${errors.lastName ? "is-invalid" : ""}`} placeholder="Enter last name"/>
                                 {errors.lastName && (
@@ -118,7 +119,7 @@ function SignUp({ onToggleLogin }) {
                     <div className="row">
                         <div className="col-lg-6 col-md-6 col-sm-12">
                             <div className="mb-3">
-                                <label htmlFor="phoneNumber">Phone Number</label>
+                                <label htmlFor="phoneNumber" className="fw-semibold">Phone Number</label>
                                 <input type="tel" id="phoneNumber" value={userData.phoneNumber} onChange={handleInputChange}
                                     className={`form-control ${errors.phoneNumber ? "is-invalid" : ""}`} placeholder="Enter phone number"/>
                                 {errors.phoneNumber && (
@@ -128,7 +129,7 @@ function SignUp({ onToggleLogin }) {
                         </div>
                         <div className="col-lg-6 col-md-6 col-sm-12">
                             <div className="mb-3">
-                                <label htmlFor="email">Email</label>
+                                <label htmlFor="email" className="fw-semibold">Email</label>
                                 <input type="email" id="email" value={userData.email} onChange={handleInputChange}
                                     className={`form-control ${errors.email ? "is-invalid" : ""}`} placeholder="Enter email"/>
                                 {errors.email && (
@@ -140,7 +141,7 @@ function SignUp({ onToggleLogin }) {
                     <div className="row">
                         <div className="col-lg-6 col-md-6 col-sm-12">
                             <div className="mb-3">
-                                <label htmlFor="country">Country</label>
+                                <label htmlFor="country" className="fw-semibold">Country</label>
                                 <select id="country" value={userData.country} onClick={getCountries}
                                     className={`form-control ${errors.country ? "is-invalid" : ""}`}
                                     onChange={handleInputChange} >
@@ -158,7 +159,7 @@ function SignUp({ onToggleLogin }) {
                         </div>
                         <div className="col-lg-6 col-md-6 col-sm-12">
                             <div className="mb-3">
-                                <label htmlFor="state">State</label>
+                                <label htmlFor="state" className="fw-semibold">State</label>
                                 <select id="state" value={userData.state} onClick={getStates}
                                     className={`form-control ${errors.state ? "is-invalid" : ""}`}
                                     onChange={handleInputChange} disabled={!userData.country} >
@@ -179,9 +180,7 @@ function SignUp({ onToggleLogin }) {
                         )}
                     </div>
                     <div className="d-flex flex-column align-items-center mb-2">
-                        <button type="submit" className="btn btn-primary w-100">
-                            Sign Up
-                        </button>
+                        <Button sx={{ bgcolor: '#3b0764'}} type="submit" variant="contained" className="w-100">Sign Up</Button>
                         <div className="mt-3">
                             Are you an existing user?{" "}
                             <a className="text-primary pointer" href="/">
