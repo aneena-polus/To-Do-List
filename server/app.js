@@ -4,9 +4,11 @@ import taskRouter from "./router/taskRouter.js";
 import loginRouter from "./router/loginRouter.js";
 import { connectDb } from "./config/connection.js";
 import cookieParser from 'cookie-parser';
+import cors from 'cors';
 
 dotenv.config();
 const app = express();
+app.use(cors());
 connectDb();
 const PORT = process.env.PORT || 5000;
 app.use(express.json());
