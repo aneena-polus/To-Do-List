@@ -1,7 +1,2 @@
 [build]
   command = "CI=false npm run build"
-[[redirects]]
-  from = "/api/*"
-  to = "https://to-do-list-00q9.onrender.com/api/:splat"
-  status = 200
-  force = true
