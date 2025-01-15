@@ -9,10 +9,12 @@ import cors from 'cors';
 dotenv.config();
 const app = express();
 
-app.use(cors({
-    credentials: true, 
-}));
-
+const corsOptions = {
+    origin: 'http://localhost:3000',  
+    credentials: true,               
+  };
+  
+  app.use(cors(corsOptions));
 connectDb();
 const PORT = process.env.PORT || 5000;
 app.use(express.json());
