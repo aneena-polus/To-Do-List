@@ -13,6 +13,7 @@ export const userLogin = async (req, res) => {
             return res.cookie("access_token", token, {
                     httpOnly: true,
                     maxAge: 3600000,
+                    sameSite: 'None',
                 }).status(200).json(user);
         }
     } catch (err) {
